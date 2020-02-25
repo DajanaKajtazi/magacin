@@ -1,0 +1,10 @@
+CREATE USER IF NOT EXISTS jwduser IDENTIFIED BY 'pass';
+
+DROP DATABASE IF EXISTS magacin;
+CREATE DATABASE magacin DEFAULT CHARACTER SET utf8;
+
+USE magacin;
+
+GRANT ALL ON magacin.* TO 'jwduser'@'%';
+
+FLUSH PRIVILEGES;
