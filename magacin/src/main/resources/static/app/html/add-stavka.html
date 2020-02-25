@@ -1,0 +1,15 @@
+<div ng-controller="StavkaCtrl">
+
+<form >
+  <div class="form-group">
+  <label for="skolicina">Kolicina</label>
+  <input id="skolicina" class="form-control" ng-model="stavka.kolicina"/>
+  </div>
+  <div class="form-group">
+  <label for="scena">Jedinicna cena</label>
+  <input id="scena" class="form-control" ng-model="stavka.jedinicnaCena"/>
+  </div>
+  <button class="btn btn-primary" ng-click="doDodavanje()">Dodaj</button>
+</form>
+
+</div>

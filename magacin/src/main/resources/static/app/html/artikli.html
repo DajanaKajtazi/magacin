@@ -1,0 +1,59 @@
+<div ng-controller="ArtikliCtrl">
+<h1>Magacin</h1>
+</br>
+<button class="btn btn-primary" ng-click="goToAdd()">Dodavanje</button>
+</br>
+</br>
+
+  <form>
+      <div class="form-group">
+        <label for="snaziv">Naziv</label>
+        <input id="snaziv" class="form-control" ng-model="searchArtikal.naziv"/>
+      </div>
+      <div class="form-group">
+       <label for="magacin">Magacin</label>
+       <select id="magacin" class="form-control" ng-model="searchArtikal.magacinId">
+        <option ng-repeat="m in magacini" value="{{m.id}}" ng-selected="m.id == searchArtikal.magacinId">{{m.naziv}}</option>
+       </select>
+      </div>  
+  
+      <button class="btn btn-primary" ng-click="doSearch()">Pretrazi</button>
+  
+  </form>
+  
+  <div class="btn-group float-right">
+    <button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-info">Prethodna</button>
+    <button ng-disabled="pageNum >= totalPages - 1" ng-click="changePage(1)" class="btn btn-info">Sledeca</button>
+  </div>
+  
+</br>
+   <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Naziv</th>
+          <th>Pakovanje</th> 
+          <th>Kolicina</th>
+          <th>K.Cena</th>
+          <th>Magacin</th>
+          <th>Akcija</th>    
+        </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="a in artikli">
+          <td>{{a.naziv}}</td>
+          <td>{{a.pakovanje}}{{a.jedinicaMere}}</td>
+          <td>{{a.kolicina}}</td>
+          <td>{{a.kalkulisanaCena}}</td>
+          <td>{{a.magacinNaziv}}</td>
+          <td>
+          <button class="btn btn-warning" ng-click="goToEdit(a.id)">Izmeni</button>
+          <button class="btn btn-danger" ng-disabled="a.kolicina == 0 && a.kalkulisanaCena == 0" ng-click="doDelete(a.id)">Obrisi</button>
+          <button class="btn btn-primary" ng-click="goToDodavanje(a.id)">Primi</button>
+          </td>
+         </tr>
+       </tbody>
+     </table>
+
+
+
+</div>

@@ -1,0 +1,25 @@
+<div ng-controller="AddCtrl">
+  
+  <form>
+  <div class="form-group">
+    <label for="naziv">Naziv</label>
+    <input id="naziv" class="form-control" ng-model="artikal.naziv"/>
+  </div>
+  <div class="form-group">
+   <label for="pakovanje">Pakovanje</label>
+   <input id="pakovanje" class="form-control" ng-model="artikal.pakovanje"/>
+  </div>
+   <div class="form-group">
+   <label for="jedinicaMere">Jedinica mere</label>
+   <input id="jedinicaMere" class="form-control" ng-model="artikal.jedinicaMere"/>
+  </div>
+  
+  <div class="form-group">
+  <label for="magacin">Magacin</label>
+  <select id="magacin" class="form-control" ng-model="artikal.magacinId">
+   <option ng-repeat="m in magacini" value="{{m.id}}" >{{m.naziv}}</option>
+  </select>
+  </div>
+  <button class="btn btn-primary" ng-click="doAdd()">Dodaj</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<div ng-controller="EditCtrl">
+
+ <form>
+   <div class="form-group">
+     <label for="enaziv">Naziv</label>
+     <input id="enaziv" class="form-control" ng-model="artikal.naziv" />
+   </div>
+   <div class="form-group">
+     <label for="epakovanje">Pakovanje</label>
+     <input id="epakovanje" class="form-control" ng-model="artikal.pakovanje" />
+   </div>
+   <div class="form-group">
+     <label for="emera">Jedinica mere</label>
+     <input id="emera" class="form-control" ng-model="artikal.jedinicaMere" />
+   </div>
+   <div class="form-group">
+     <label for="ekolicina">Kolicina</label>
+     <input id="ekolicina" class="form-control" ng-model="artikal.kolicina" />
+   </div>
+   <div class="form-group">
+     <label for="ecena">K.Cena</label>
+     <input id="ecena" class="form-control" ng-model="artikal.kalkulisanaCena" />
+   </div>
+   <div class="form-group">
+     <label for="emagacin">Magacin</label>
+     <select id="emagacin" class="form-control" ng-model="artikal.magacinId">
+       <option ng-repeat="m in magacini" value="{{m.id}}" ng-selected="m.id == artikal.magacinId">{{m.naziv}}</option>
+     </select>
+   </div>
+   <button class="btn btn-primary" ng-click="doEdit()">Izmeni</button>
+ </form>
+
+</div>
